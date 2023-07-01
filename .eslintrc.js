@@ -9,11 +9,15 @@ module.exports = {
     {
       files: ["*.ts", "*.tsx"],
       extends: [
+        "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
       ],
       parserOptions: {
         project: ["./tsconfig.json"],
+        parser: "@typescript-eslint/parser",
+        plugins: ["@typescript-eslint"],
+        root: true,
       },
     },
   ],
@@ -25,6 +29,7 @@ module.exports = {
   plugins: ["@typescript-eslint", "jest"],
 
   rules: {
+    "@typescript-eslint/no-var-requires": "off",
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "import/extensions": ["warn", "never"],
