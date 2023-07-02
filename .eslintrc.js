@@ -8,6 +8,10 @@ module.exports = {
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
+      rules: {
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/restrict-plus-operands": "error",
+      },
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -27,8 +31,13 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "jest"],
-
+  //settings: {
+  //  "import/ignore": [".css$", "node_modules/*"],
+  //},
   rules: {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/restrict-plus-operands": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-var-requires": "off",
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
