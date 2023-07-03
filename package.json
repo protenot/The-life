@@ -41,7 +41,6 @@
     "jest-environment-jsdom": "25.0",
     "lint-staged": "^13.2.3",
     "postcss": "^8.4.24",
-    "postcss-loader": "^7.3.3",
     "prettier": "^2.8.8",
     "style-loader": "^3.3.3",
     "typescript": "5.0",

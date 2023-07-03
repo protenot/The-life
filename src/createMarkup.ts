@@ -18,6 +18,7 @@ export function createMarkup(
 
     field.appendChild(box);
   }
+  console.log(document.querySelectorAll(".box"));
 
   const buttonStart = document.createElement("button");
   buttonStart.classList.add("start");
@@ -37,4 +38,5 @@ export function createMarkup(
   buttonClear.innerText = "Clear field";
   element.append(buttonClear);
   buttonClear.addEventListener("click", clearField);
+  // return Array.from(document.querySelectorAll('.box'))
 }

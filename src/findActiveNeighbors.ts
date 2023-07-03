@@ -11,7 +11,7 @@ export function findActiveNeighbors(
 ): void {
   // let newArrayAll:Element[] = [];
   let newArr: Element[] = [];
-
+  console.log(allCells.length);
   for (let i = 0; i < allCells.length; i++) {
     // newArrayAll.push( allCells[i]);
 

@@ -1,4 +1,8 @@
-export function makeActive(this: Element): void {
+export function makeActive(this: {
+  classList: DOMTokenList;
+
+  box: HTMLDivElement;
+}): void {
   if (this.classList.contains("idle")) {
     this.classList.add("active");
     this.classList.remove("idle");
