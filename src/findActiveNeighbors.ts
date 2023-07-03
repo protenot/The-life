@@ -6,7 +6,8 @@ export function findActiveNeighbors(
   allCells: CustomHTMLElement[],
   generationCounter: number,
   inputX: number,
-  counter: HTMLElement
+  counter: HTMLElement,
+  speed: number
 ): void {
   // let newArrayAll:Element[] = [];
   let newArr: Element[] = [];
@@ -177,7 +178,7 @@ export function findActiveNeighbors(
     counter.innerText = "Quantity of rebirth: " + generationCounter.toString();
     // }
   } else {
-    clearField(allCells, generationCounter, counter);
+    clearField(allCells, generationCounter, counter, speed);
     // alert('Everybody sleep!')
   }
 

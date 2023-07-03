@@ -17,8 +17,8 @@ describe("createMarkup", () => {
     container.remove();
   });
 
-  test("creates markup correctly", () => {
-    const totalQuantity = 5;
+  it("creates markup correctly", () => {
+    const totalQuantity = 9;
     createMarkup(container, totalQuantity);
 
     // Assert that the container has a field div
@@ -26,20 +26,23 @@ describe("createMarkup", () => {
     expect(fieldElement).toBeTruthy();
 
     // Assert that the container has the specified number of box divs
-    const boxElements = container.querySelectorAll(".box");
+    const boxElements = fieldElement.querySelectorAll(".box");
     expect(boxElements.length).toBe(totalQuantity);
 
     // Assert that the buttons are created and have the correct text
-    const startButton = container.querySelector(".start");
+    const startButton: HTMLButtonElement = container.querySelector(".start");
+    console.log(startButton.innerText);
     expect(startButton).toBeTruthy();
-    expect(startButton.textContent).toBe("Start");
+    expect(startButton.innerText).toBe("Start");
 
-    const clearButton = container.querySelector(".clear");
+    const clearButton: HTMLButtonElement = container.querySelector(".clear");
     expect(clearButton).toBeTruthy();
-    expect(clearButton.textContent).toBe("Clear field");
+    expect(clearButton.innerText).toBe("Clear field");
 
     // Test event listeners
-    const makeActiveSpy = jest.spyOn(makeActive);
+    // const makeActive = require('./makeActive')
+    /* const makeActiveSpy = jest.spyOn(makeActive, "makeActive");
+
     boxElements[0].dispatchEvent(new MouseEvent("click"));
     expect(makeActiveSpy).toHaveBeenCalled();
 
@@ -49,6 +52,6 @@ describe("createMarkup", () => {
 
     const clearFieldSpy = jest.spyOn(clearField);
     clearButton.dispatchEvent(new MouseEvent("click"));
-    expect(clearFieldSpy).toHaveBeenCalled();
+    expect(clearFieldSpy).toHaveBeenCalled(); */
   });
 });

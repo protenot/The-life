@@ -21,12 +21,17 @@ export function createMarkup(
 
   const buttonStart = document.createElement("button");
   buttonStart.classList.add("start");
+  console.log(buttonStart.className);
   buttonStart.innerText = "Start";
+  console.log(buttonStart.innerText);
   element.append(buttonStart);
-  buttonStart.addEventListener(
-    "click",
-    updatesProcess as (this: HTMLButtonElement, ev: MouseEvent) => any
-  );
+  buttonStart.addEventListener("click", updatesProcess);
+  // "click",
+  // updatesProcess as (
+  // ev: MouseEvent,
+
+  //    ) => unknown,
+  // );
   const buttonClear = document.createElement("button");
   buttonClear.classList.add("clear");
   buttonClear.innerText = "Clear field";

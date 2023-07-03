@@ -9,6 +9,8 @@ module.exports = {
     {
       files: ["*.ts", "*.tsx"],
       rules: {
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-throw-literal": "error",
         "@typescript-eslint/explicit-function-return-type": "error",
         "@typescript-eslint/restrict-plus-operands": "error",
       },
@@ -35,6 +37,8 @@ module.exports = {
   //  "import/ignore": [".css$", "node_modules/*"],
   //},
   rules: {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-throw-literal": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/restrict-plus-operands": "off",
     "@typescript-eslint/no-unsafe-call": "off",

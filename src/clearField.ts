@@ -1,7 +1,8 @@
 export function clearField(
   allCells: HTMLElement[],
   generationCounter: number,
-  counter: HTMLElement
+  counter: HTMLElement,
+  speed: number
 ): void {
   for (let i = 0; i < allCells.length; i++) {
     if (allCells[i].classList.contains("active")) {
@@ -12,4 +13,9 @@ export function clearField(
         "Quantity of rebirth: " + generationCounter.toString();
     }
   }
+  generationCounter = 0;
+  speed = 0;
+  // window.location.reload();
+  // throw ""
+  // new Error("Game is over");
 }

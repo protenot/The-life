@@ -1,1 +1,1 @@
-import { makeActive } from "./makeActive.test";
+import { makeActive } from "./makeActive.ts";
