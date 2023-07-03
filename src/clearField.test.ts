@@ -4,6 +4,7 @@ describe("clearField", () => {
   let allCells: HTMLElement[];
   let generationCounter: number;
   let counter: HTMLElement;
+  let speed: number;
 
   beforeEach(() => {
     allCells = [
@@ -18,10 +19,11 @@ describe("clearField", () => {
     generationCounter = 3;
     counter = document.createElement("p");
     counter.innerText = "Quantity of rebirth: " + generationCounter.toString();
+    speed = 30;
   });
 
   it("clears 'active' class and resets generationCounter and counter text", () => {
-    clearField(allCells, generationCounter, counter);
+    clearField(allCells, generationCounter, counter, speed);
 
     expect(allCells[0].classList.contains("active")).toBeFalsy();
     expect(allCells[1].classList.contains("idle")).toBeTruthy();
@@ -32,7 +34,7 @@ describe("clearField", () => {
   });
 
   it("does nothing if no cell has 'active' class", () => {
-    clearField([allCells[1]], generationCounter, counter);
+    clearField([allCells[1]], generationCounter, counter, speed);
 
     expect(allCells[1].classList.contains("active")).toBeFalsy();
 

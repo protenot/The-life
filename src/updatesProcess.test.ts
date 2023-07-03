@@ -36,7 +36,7 @@ describe("updatesProcess", () => {
     // const findActiveNeighborsSpy = jest.spyOn(findActiveNeighbors, 'findActiveNeighbors');
     // const updatesProcessSpy = jest.spyOn(updatesProcess, 'updatesProcess');
 
-    updatesProcess(speed, allCells, generationCounter, inputX, counter);
+    updatesProcess(allCells, generationCounter, inputX, counter, speed);
 
     /* expect(findActiveNeighbors).toHaveBeenCalledWith(
       allCells,

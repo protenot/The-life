@@ -21,14 +21,23 @@ export function reviveField(element: HTMLElement, x: number, y: number): void {
   const inputX: number = x;
   const inputY: number = y;
   const totalQuantity: number = inputX * inputY;
+  const allCells: HTMLElement[] = Array.from(document.querySelectorAll(".box"));
 
-  createMarkup(element, totalQuantity);
+  createMarkup(
+    element,
+    totalQuantity,
+    allCells,
+    generationCounter,
+    inputX,
+    counter,
+    speed
+  );
 
   // interface CustomHTMLElement extends HTMLElement {
   //     countNeighbors?: number;
   //  }
   //  console.log (document.querySelectorAll(".box"))
-  const allCells: HTMLElement[] = Array.from(document.querySelectorAll(".box"));
+  //
   console.log(allCells.length);
   findActiveNeighbors(allCells, generationCounter, inputX, counter, speed);
 }

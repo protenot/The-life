@@ -16,10 +16,48 @@ describe("createMarkup", () => {
     // Clean up the container element after each test
     container.remove();
   });
+  interface CustomHTMLElement extends HTMLElement {
+    countNeighbors?: number;
+  }
+
+  function createCell(className: string): CustomHTMLElement {
+    const cell: CustomHTMLElement = document.createElement("div");
+    cell.classList.add(className);
+
+    return cell;
+  }
+
+  function createMockHTMLElement(): HTMLElement {
+    return document.createElement("div");
+  }
+  const allCells: CustomHTMLElement[] = [
+    createCell("active"),
+    createCell("active"),
+    createCell("idle"),
+    createCell("active"),
+    createCell("idle"),
+    createCell("idle"),
+    createCell("active"),
+    createCell("active"),
+    createCell("idle"),
+  ];
+  // console.log(allCells.length)
+  const generationCounter = 0;
+  const inputX = 3;
+  const counter = createMockHTMLElement();
+  const speed = 30;
 
   it("creates markup correctly", () => {
     const totalQuantity = 9;
-    createMarkup(container, totalQuantity);
+    createMarkup(
+      container,
+      totalQuantity,
+      allCells,
+      generationCounter,
+      inputX,
+      counter,
+      speed
+    );
 
     // Assert that the container has a field div
     const fieldElement = container.querySelector(".field");

@@ -1,3 +1,3 @@
 import "./style.css";
 import { reviveField } from "./reviveField.ts";
-reviveField(document.querySelector("#container"), 4, 4);
+reviveField(document.querySelector("#container"), 15, 15);

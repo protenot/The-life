@@ -1,6 +1,7 @@
 import { clearField } from "./clearField.ts";
 interface CustomHTMLElement extends HTMLElement {
   countNeighbors?: number;
+  // classList: DOMTokenList;
 }
 export function findActiveNeighbors(
   allCells: CustomHTMLElement[],
@@ -11,7 +12,7 @@ export function findActiveNeighbors(
 ): void {
   // let newArrayAll:Element[] = [];
   let newArr: Element[] = [];
-  console.log(allCells.length);
+  //  console.log(allCells.length);
   for (let i = 0; i < allCells.length; i++) {
     // newArrayAll.push( allCells[i]);
 
@@ -32,6 +33,7 @@ export function findActiveNeighbors(
         // console.log(allCells[i].classList);
         allCells[i].countNeighbors++;
       }
+      // console.log(allCells[4].className)
       if (allCells[inputX].classList.contains("active")) {
         allCells[i].countNeighbors++;
       }

@@ -4,14 +4,19 @@ interface CustomHTMLElement extends HTMLElement {
   countNeighbors?: number;
 }
 export function updatesProcess(
-  speed: number,
   allCells: CustomHTMLElement[],
   generationCounter: number,
   inputX: number,
-  counter: HTMLElement
+  counter: HTMLElement,
+  speed: number
 ): void {
+  allCells = Array.from(document.querySelectorAll(".box"));
+  // console.log(allCells)
+
   setTimeout(function () {
+    // console.log(allCells[4].className)
     findActiveNeighbors(allCells, generationCounter, inputX, counter, speed);
-    updatesProcess(speed, allCells, generationCounter, inputX, counter);
+    console.log(speed);
+    updatesProcess(allCells, generationCounter, inputX, counter, speed);
   }, 1200 / speed);
 }
