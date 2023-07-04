@@ -10,7 +10,7 @@ export function createMarkup(
   element: HTMLElement,
   totalQuantity: number,
   allCells: CustomHTMLElement[],
-  generationCounter: number,
+  generationCounter: { value: number },
   inputX: number,
   counter: HTMLElement,
   speed: number

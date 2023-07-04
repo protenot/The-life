@@ -5,7 +5,7 @@ interface CustomHTMLElement extends HTMLElement {
 }
 export function updatesProcess(
   allCells: CustomHTMLElement[],
-  generationCounter: number,
+  generationCounter: { value: number },
   inputX: number,
   counter: HTMLElement,
   speed: number

@@ -1,6 +1,6 @@
 export function clearField(
   allCells: HTMLElement[],
-  generationCounter: number,
+  generationCounter: { value: number },
   counter: HTMLElement,
   speed: number
 ): void {
@@ -8,12 +8,12 @@ export function clearField(
     if (allCells[i].classList.contains("active")) {
       allCells[i].classList.add("idle");
       allCells[i].classList.remove("active");
-      generationCounter = 0;
+      generationCounter.value = 0;
       counter.innerText =
-        "Quantity of rebirth: " + generationCounter.toString();
+        "Quantity of rebirth: " + generationCounter.value.toString();
     }
   }
-  generationCounter = 0;
+  generationCounter.value = 0;
   speed = 0;
   // window.location.reload();
   // throw ""
