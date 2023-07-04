@@ -37,6 +37,7 @@ module.exports = {
   //  "import/ignore": [".css$", "node_modules/*"],
   //},
   rules: {
+    "@typescript-eslint/no-base-to-string": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-throw-literal": "off",
     "@typescript-eslint/explicit-function-return-type": "off",

@@ -1,5 +1,5 @@
 import { updatesProcess } from "./updatesProcess.ts";
-//import { findActiveNeighbors } from "./findActiveNeighbors";
+// import { findActiveNeighbors } from "./findActiveNeighbors";
 
 interface CustomHTMLElement extends HTMLElement {
   countNeighbors?: number;

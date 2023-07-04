@@ -8,7 +8,7 @@ export function updatesProcess(
   generationCounter: { value: number },
   inputX: number,
   counter: HTMLElement,
-  speed: number
+  speed: { value: number }
 ): void {
   allCells = Array.from(document.querySelectorAll(".box"));
   // console.log(allCells)
@@ -16,7 +16,7 @@ export function updatesProcess(
   setTimeout(function () {
     // console.log(allCells[4].className)
     findActiveNeighbors(allCells, generationCounter, inputX, counter, speed);
-    console.log(speed);
+    // console.log(speed);
     updatesProcess(allCells, generationCounter, inputX, counter, speed);
-  }, 1200 / speed);
+  }, 1200 / speed.value);
 }

@@ -13,7 +13,7 @@ export function createMarkup(
   generationCounter: { value: number },
   inputX: number,
   counter: HTMLElement,
-  speed: number
+  speed: { value: number }
 ): void {
   const field = document.createElement("div");
   field.classList.add("field");
@@ -36,7 +36,7 @@ export function createMarkup(
   console.log(buttonStart.innerText);
   element.append(buttonStart);
   // buttonStart.addEventListener("click", updatesProcess);
-  buttonStart.addEventListener("click", function (ev: MouseEvent) {
+  buttonStart.addEventListener("click", function () {
     updatesProcess(allCells, generationCounter, inputX, counter, speed);
   });
 

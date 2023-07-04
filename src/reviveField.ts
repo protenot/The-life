@@ -18,7 +18,7 @@ export function reviveField(element: HTMLElement, x: number, y: number): void {
 
   element.append(speedInput);
 
-  const speed = Number(speedInput.value);
+  const speed: { value: number } = { value: Number(speedInput.value) };
   console.log(speed);
   const inputX: number = x;
   const inputY: number = y;

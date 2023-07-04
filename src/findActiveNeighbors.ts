@@ -9,7 +9,7 @@ export function findActiveNeighbors(
   generationCounter: { value: number },
   inputX: number,
   counter: HTMLElement,
-  speed: number
+  speed: { value: number }
 ): void {
   let newArr: Element[] = [];
 
@@ -132,7 +132,7 @@ export function findActiveNeighbors(
     }
   }
   if (newArr.length > 0) {
-    console.log(newArr.length);
+    // console.log(newArr.length);
     // if (newArrayAll.toString() === oldArrayAll.toString()){
     //  console.log(newArrayAll.toString());
     // console.log(oldArrayAll.toString());
@@ -140,7 +140,7 @@ export function findActiveNeighbors(
     // throw""
     // }else{
     generationCounter.value++;
-    console.log(generationCounter);
+    // console.log(generationCounter);
     counter.innerText =
       "Quantity of rebirth: " + generationCounter.value.toString();
     // }
