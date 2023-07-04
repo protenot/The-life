@@ -1,5 +1,5 @@
 import { updatesProcess } from "./updatesProcess.ts";
-import { findActiveNeighbors } from "./findActiveNeighbors";
+//import { findActiveNeighbors } from "./findActiveNeighbors";
 
 interface CustomHTMLElement extends HTMLElement {
   countNeighbors?: number;
@@ -28,7 +28,7 @@ describe("updatesProcess", () => {
       createCell("active"),
       createCell("idle"),
     ];
-    const generationCounter = 0;
+    const generationCounter: { value: number } = { value: 0 };
     const inputX = 3;
     const counter = document.createElement("div");
     // const findActiveNeighbors= require ('./findActiveNeighbors')

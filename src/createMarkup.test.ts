@@ -42,7 +42,7 @@ describe("createMarkup", () => {
     createCell("idle"),
   ];
   // console.log(allCells.length)
-  const generationCounter = 0;
+  const generationCounter: { value: number } = { value: 0 };
   const inputX = 3;
   const counter = createMockHTMLElement();
   const speed = 30;
