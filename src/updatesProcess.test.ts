@@ -1,5 +1,5 @@
 import { updatesProcess } from "./updatesProcess.ts";
-// import { findActiveNeighbors } from "./findActiveNeighbors";
+import * as findActiveNeighbors from "./findActiveNeighbors";
 
 interface CustomHTMLElement extends HTMLElement {
   countNeighbors?: number;
@@ -31,19 +31,23 @@ describe("updatesProcess", () => {
     const generationCounter: { value: number } = { value: 0 };
     const inputX = 3;
     const counter = document.createElement("div");
-    // const findActiveNeighbors= require ('./findActiveNeighbors')
+
     const setTimeoutSpy = jest.spyOn(window, "setTimeout");
-    // const findActiveNeighborsSpy = jest.spyOn(findActiveNeighbors, 'findActiveNeighbors');
+
+    const findActiveNeighborsSpy = jest.spyOn(
+      findActiveNeighbors,
+      "findActiveNeighbors"
+    );
+
     // const updatesProcessSpy = jest.spyOn(updatesProcess, 'updatesProcess');
 
     updatesProcess(allCells, generationCounter, inputX, counter, speed);
 
-    /* expect(findActiveNeighbors).toHaveBeenCalledWith(
+    /*  expect(findActiveNeighborsSpy).toHaveBeenCalledWith(
       allCells,
       generationCounter,
       inputX,
-      counter,
-      speed
+      counter
     ); */
     // expect(updatesProcess()).toHaveBeenCalledWith(speed, allCells, generationCounter, inputX, counter);
     expect(setTimeoutSpy).toHaveBeenCalledTimes(1);
@@ -51,5 +55,9 @@ describe("updatesProcess", () => {
       expect.any(Function),
       1200 / speed.value
     );
+    /* expect(setTimeoutSpy).toHaveBeenLastCalledWith(
+      findActiveNeighborsSpy,
+      1200 / speed.value
+    ); */
   });
 });

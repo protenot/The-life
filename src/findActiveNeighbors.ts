@@ -9,7 +9,6 @@ export function findActiveNeighbors(
   generationCounter: { value: number },
   inputX: number,
   counter: HTMLElement
-  // speed: { value: number }
 ): void {
   let newArr: Element[] = [];
   // let arrayAllPrevious:Element[];

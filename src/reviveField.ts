@@ -35,12 +35,4 @@ export function reviveField(element: HTMLElement, x: number, y: number): void {
     counter,
     speed
   );
-
-  // interface CustomHTMLElement extends HTMLElement {
-  //     countNeighbors?: number;
-  //  }
-  //  console.log (document.querySelectorAll(".box"))
-  //
-  // console.log(allCells.length);
-  // findActiveNeighbors(allCells, generationCounter, inputX, counter, speed);
 }
