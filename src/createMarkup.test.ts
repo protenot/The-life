@@ -1,7 +1,7 @@
 import { createMarkup } from "./createMarkup";
-import { makeActive } from "./makeActive";
-import { updatesProcess } from "./updatesProcess";
-import { clearField } from "./clearField";
+
+import * as updatesProcess from "./updatesProcess";
+import * as clearField from "./clearField";
 
 describe("createMarkup", () => {
   let container: HTMLElement;
@@ -9,7 +9,7 @@ describe("createMarkup", () => {
   beforeEach(() => {
     // Create a container element before each test
     container = document.createElement("div");
-    document.body.appendChild(container);
+    document.body.append(container);
   });
 
   afterEach(() => {
@@ -59,13 +59,18 @@ describe("createMarkup", () => {
       speed
     );
 
-    // Assert that the container has a field div
-    const fieldElement = container.querySelector(".field");
-    expect(fieldElement).toBeTruthy();
+    // Check that the container has a field div
+    const field = container.querySelector(".field");
+    expect(field).toBeTruthy();
 
-    // Assert that the container has the specified number of box divs
-    const boxElements = fieldElement.querySelectorAll(".box");
+    // Check that the container has the specified number of box divs
+    const boxElements = field.querySelectorAll(".box");
     expect(boxElements.length).toBe(totalQuantity);
+
+    // Check that the box changes class from 'idle'to 'active'
+    const box = field.querySelector(".idle");
+    box.dispatchEvent(new Event("click"));
+    expect(box.className).toEqual("box active");
 
     // Assert that the buttons are created and have the correct text
     const startButton: HTMLButtonElement = container.querySelector(".start");
@@ -78,18 +83,13 @@ describe("createMarkup", () => {
     expect(clearButton.innerText).toBe("Clear field");
 
     // Test event listeners
-    // const makeActive = require('./makeActive')
-    /* const makeActiveSpy = jest.spyOn(makeActive, "makeActive");
 
-    boxElements[0].dispatchEvent(new MouseEvent("click"));
-    expect(makeActiveSpy).toHaveBeenCalled();
-
-    const updatesProcessSpy = jest.spyOn(updatesProcess);
+    const updatesProcessSpy = jest.spyOn(updatesProcess, "updatesProcess");
     startButton.dispatchEvent(new MouseEvent("click"));
     expect(updatesProcessSpy).toHaveBeenCalled();
 
-    const clearFieldSpy = jest.spyOn(clearField);
+    const clearFieldSpy = jest.spyOn(clearField, "clearField");
     clearButton.dispatchEvent(new MouseEvent("click"));
-    expect(clearFieldSpy).toHaveBeenCalled(); */
+    expect(clearFieldSpy).toHaveBeenCalled();
   });
 });

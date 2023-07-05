@@ -1,4 +1,4 @@
-import { clearField } from "./clearField.ts";
+// import { clearField } from "./clearField.ts";
 
 interface CustomHTMLElement extends HTMLElement {
   countNeighbors?: number;
@@ -172,18 +172,18 @@ export function findActiveNeighbors(
   // console.log(arrayAllNext.length);
   // alert ('prev'+(arrayAllPrevious.length))
 
-    if (newArr.length > 0) {
-      generationCounter.value++;
+  if (newArr.length > 0) {
+    generationCounter.value++;
 
-      counter.innerText =
-        "Quantity of rebirth: " + generationCounter.value.toString();
-    } else {
-      clearField(allCells, generationCounter, counter, speed);
-      // alert("Everybody sleep!");
-      // window.location.reload();
-    }
-    
- // } catch (err) {throw new Error("Game is over");}
+    counter.innerText =
+      "Quantity of rebirth: " + generationCounter.value.toString();
+  } else {
+    // clearField(allCells, generationCounter, counter, speed);
+    // alert("Everybody sleep!");
+    // window.location.reload();
+  }
+
+  // } catch (err) {throw new Error("Game is over");}
   for (let i = 0; i < allCells.length; i++) {
     if (allCells[i]?.countNeighbors === 3) {
       if (allCells[i]?.classList.contains("idle")) {

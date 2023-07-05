@@ -25,7 +25,7 @@ export function createMarkup(
     box.classList.add("idle");
     box.addEventListener("click", makeActive);
 
-    field.appendChild(box);
+    field.append(box);
   }
   // console.log(document.querySelectorAll(".box"));
 
@@ -35,11 +35,9 @@ export function createMarkup(
   buttonStart.innerText = "Start";
 
   element.append(buttonStart);
-  // buttonStart.addEventListener("click", updatesProcess);
+
   buttonStart.addEventListener("click", function () {
     updatesProcess(allCells, generationCounter, inputX, counter, speed);
- 
- 
   });
 
   const buttonClear = document.createElement("button");
@@ -65,6 +63,5 @@ export function createMarkup(
     });
  
  
-  });*/
-
+  }); */
 }
