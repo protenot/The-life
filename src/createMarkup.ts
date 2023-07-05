@@ -46,22 +46,6 @@ export function createMarkup(
   element.append(buttonClear);
 
   buttonClear.addEventListener("click", function () {
-    clearField(allCells, generationCounter, counter, speed);
+    clearField(allCells);
   });
-  /* const buttonRestart = document.createElement("button");
-  buttonRestart.classList.add("start");
-  
-  buttonRestart.innerText = "Restart";
- 
-  element.append(buttonRestart);
-
-  buttonRestart.addEventListener("click",  ()=> {
-    history.go(0);
-    setTimeout(function(){
-      window.location.reload();
-      history.go(0);
-    });
- 
- 
-  }); */
 }

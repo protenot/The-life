@@ -1,16 +1,15 @@
-// import { clearField } from "./clearField.ts";
-
 interface CustomHTMLElement extends HTMLElement {
   countNeighbors?: number;
 }
-let arrayAllPrevious: Element[] = [];
-let arrayAllNext: Element[] = [];
+
+const arrayAllNext: Element[] = [];
+
 export function findActiveNeighbors(
   allCells: CustomHTMLElement[],
   generationCounter: { value: number },
   inputX: number,
-  counter: HTMLElement,
-  speed: { value: number }
+  counter: HTMLElement
+  // speed: { value: number }
 ): void {
   let newArr: Element[] = [];
   // let arrayAllPrevious:Element[];
@@ -178,7 +177,10 @@ export function findActiveNeighbors(
     counter.innerText =
       "Quantity of rebirth: " + generationCounter.value.toString();
   } else {
-    // clearField(allCells, generationCounter, counter, speed);
+    generationCounter.value = 0;
+    counter.innerText =
+      "Quantity of rebirth: " + generationCounter.value.toString();
+
     // alert("Everybody sleep!");
     // window.location.reload();
   }
@@ -208,29 +210,7 @@ export function findActiveNeighbors(
         allCells[i].classList.remove("active");
       }
     }
-
-    /* if (allCells[i].classList.contains("active")) {
-      newArr.push(allCells[i]);
-     
-    } */
   }
-  // console.log(JSON.stringify(arrayAllPrevious));
-  // console.log(JSON.stringify(arrayAllNext));
-
-  // alert ('next'+(arrayAllNext.length))
-  if (JSON.stringify(arrayAllPrevious) === JSON.stringify(arrayAllNext)) {
-    //   alert( 'Game is over'  )
-    // throw""
-  } else {
-    // generationCounter.value++;
-    // console.log(generationCounter);
-    // counter.innerText =
-    // "Quantity of rebirth: " + generationCounter.value.toString();
-  }
-
-  arrayAllPrevious = [...arrayAllNext];
-  // console.log(arrayAllPrevious)
-  arrayAllNext = [];
 
   newArr = [];
 }

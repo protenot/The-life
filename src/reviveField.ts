@@ -3,7 +3,6 @@ import { createMarkup } from "./createMarkup";
 // import { makeActive } from "./makeActive";
 export function reviveField(element: HTMLElement, x: number, y: number): void {
   const generationCounter: { value: number } = { value: 0 };
-  // generationCounter = { value: 0 };
 
   const counter: HTMLElement = document.createElement("div");
   counter.classList.add("counter");
