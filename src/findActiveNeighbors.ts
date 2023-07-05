@@ -3,7 +3,8 @@ import { clearField } from "./clearField.ts";
 interface CustomHTMLElement extends HTMLElement {
   countNeighbors?: number;
 }
-
+let arrayAllPrevious: Element[] = [];
+let arrayAllNext: Element[] = [];
 export function findActiveNeighbors(
   allCells: CustomHTMLElement[],
   generationCounter: { value: number },
@@ -12,9 +13,11 @@ export function findActiveNeighbors(
   speed: { value: number }
 ): void {
   let newArr: Element[] = [];
-
+  // let arrayAllPrevious:Element[];
+  // let arrayAllNext:Element[]=[];
   for (let i = 0; i < allCells.length; i++) {
-    // newArrayAll.push( allCells[i]);
+    //  arrayAllPrevious.push( allCells[i]);
+    // console.log(arrayAllPrevious.length)
 
     allCells[i].countNeighbors = 0;
     // проверяем первую ячейку
@@ -22,17 +25,51 @@ export function findActiveNeighbors(
       if (allCells[i + 1].classList.contains("active")) {
         // console.log(allCells[i].classList);
         allCells[i].countNeighbors++;
+        // console.log(i);
+        // console.log("соседи В " + allCells[i].countNeighbors);
       }
-      // console.log(allCells[4].className)
+
       if (allCells[inputX].classList.contains("active")) {
         allCells[i].countNeighbors++;
+        // console.log(i);
+        // console.log("соседи Ю" + allCells[i].countNeighbors);
       }
       if (allCells[inputX + 1].classList.contains("active")) {
         allCells[i].countNeighbors++;
+        // console.log(i);
+        // console.log("соседи ЮВ " + allCells[i].countNeighbors);
       }
-      //  console.log(allCells[i].countNeighbors)
+    }
+    if (i === 1) {
+      if (allCells[i - 1].classList.contains("active")) {
+        // console.log(allCells[i].classList);
+        allCells[i].countNeighbors++;
+        // console.log(i);
+        // console.log("соседи Z " + allCells[i].countNeighbors);
+      }
+      if (allCells[i + 1].classList.contains("active")) {
+        allCells[i].countNeighbors++;
+        // console.log(i);
+        // console.log("соседи В " + allCells[i].countNeighbors);
+      }
+      if (allCells[inputX].classList.contains("active")) {
+        allCells[i].countNeighbors++;
+        // console.log(i);
+        // console.log("соседи Ю" + allCells[i].countNeighbors);
+      }
+
+      if (allCells[inputX - 1].classList.contains("active")) {
+        allCells[i].countNeighbors++;
+        // console.log(i);
+        // console.log("соседи ЮЗ " + allCells[i].countNeighbors);
+      }
+      if (allCells[inputX + 1].classList.contains("active")) {
+        allCells[i].countNeighbors++;
+        // console.log(i);
+        // console.log("соседи ЮВ " + allCells[i].countNeighbors);
+      }
     } else {
-      if (i > 0 && i <= allCells.length - 1) {
+      if (i > 1 && i <= allCells.length - 1) {
         // проверяем клетку на юго-западе
         if (
           i % inputX !== 0 &&
@@ -69,87 +106,84 @@ export function findActiveNeighbors(
           // console.log("соседи СЗ " + allCells[i].countNeighbors);
         }
         // проверяем клетку на севере
-        if (i - inputX >= 0) {
-          if (allCells[i - inputX].classList.contains("active")) {
-            // console.log(i);
-            allCells[i].countNeighbors++;
+        if (
+          i - inputX >= 0 &&
+          allCells[i - inputX].classList.contains("active")
+        ) {
+          // console.log(i);
+          allCells[i].countNeighbors++;
 
-            // console.log("соседи С " + allCells[i].countNeighbors);
-            // console.log(allCells[3].className)
-            // console.log( '4 яч ' + allCells[4].className)
-          }
-          // проверяем клетку на северо-востоке
-          if (
-            (i + 1) % inputX !== 0 &&
-            i - inputX + 1 > 0 &&
-            allCells[i - inputX + 1].classList.contains("active")
-          ) {
-            allCells[i].countNeighbors++;
-            // console.log(i);
-            // console.log("соседи СВ " + allCells[i].countNeighbors);
-            // console.log( '6 яч ' + allCells[i+inputX].className)
-          }
+          // console.log("соседи С " + allCells[i].countNeighbors);
+          // console.log(allCells[3].className)
+          // console.log( '4 яч ' + allCells[4].className)
+        }
+        // проверяем клетку на северо-востоке
+        if (
+          (i + 1) % inputX !== 0 &&
+          i - inputX + 1 > 0 &&
+          allCells[i - inputX + 1].classList.contains("active")
+        ) {
+          allCells[i].countNeighbors++;
+          // console.log(i);
+          //  console.log("соседи СВ " + allCells[i].countNeighbors);
+          // console.log( '6 яч ' + allCells[i+inputX].className)
+        }
 
-          // проверяем клетку на востоке
-          if (
-            (i + 1) % inputX !== 0 &&
-            i + 1 &&
-            i + 1 <= allCells.length - 1 &&
-            allCells[i + 1].classList.contains("active")
-          ) {
-            // console.log(i)
-            allCells[i].countNeighbors++;
-            // console.log(i);
-            // console.log("соседи В " + allCells[i].countNeighbors);
-          }
+        // проверяем клетку на востоке
+        if (
+          (i + 1) % inputX !== 0 &&
+          i + 1 &&
+          i + 1 <= allCells.length - 1 &&
+          allCells[i + 1].classList.contains("active")
+        ) {
+          allCells[i].countNeighbors++;
+          // console.log(i);
+          // console.log("соседи В " + allCells[i].countNeighbors);
+        }
 
-          // проверяем клетку на юге
-          if (
-            i + inputX &&
-            i + inputX <= allCells.length - 1 &&
-            allCells[i + inputX].classList.contains("active")
-          ) {
-            // console.log( '5 яч ' + allCells[5].className)
-            allCells[i].countNeighbors++;
-            // console.log(i);
-            // console.log("соседи Ю" + allCells[i].countNeighbors);
-          }
-          // проверяем клетку на юго-востоке
-          if (
-            (i + 1) % inputX !== 0 &&
-            i + inputX + 1 <= allCells.length - 1 &&
-            allCells[i + inputX + 1].classList.contains("active")
-          ) {
-            allCells[i].countNeighbors++;
-            // console.log(i);
-            // console.log("все соседи ЮВ " + allCells[i].countNeighbors);
-          }
+        // проверяем клетку на юге
+        if (
+          i + inputX &&
+          i + inputX <= allCells.length - 1 &&
+          allCells[i + inputX].classList.contains("active")
+        ) {
+          // console.log( '5 яч ' + allCells[5].className)
+          allCells[i].countNeighbors++;
+          //  console.log(i);
+          //  console.log("соседи Ю" + allCells[i].countNeighbors);
+        }
+        // проверяем клетку на юго-востоке
+        if (
+          (i + 1) % inputX !== 0 &&
+          i + inputX + 1 <= allCells.length - 1 &&
+          allCells[i + inputX + 1].classList.contains("active")
+        ) {
+          allCells[i].countNeighbors++;
+          // console.log(i);
+          // console.log("все соседи ЮВ " + allCells[i].countNeighbors);
         }
       }
     }
     if (allCells[i].classList.contains("active")) {
       newArr.push(allCells[i]);
     }
+    arrayAllNext.push(allCells[i]);
   }
-  if (newArr.length > 0) {
-    // console.log(newArr.length);
-    // if (newArrayAll.toString() === oldArrayAll.toString()){
-    //  console.log(newArrayAll.toString());
-    // console.log(oldArrayAll.toString());
-    //     alert( 'Stop game! Push button "Clear feild"'  )
-    // throw""
-    // }else{
-    generationCounter.value++;
-    // console.log(generationCounter);
-    counter.innerText =
-      "Quantity of rebirth: " + generationCounter.value.toString();
-    // }
-  } else {
-    clearField(allCells, generationCounter, counter, speed);
-    // alert('Everybody sleep!')
-    // throw""
-  }
+  // console.log(arrayAllNext.length);
+  // alert ('prev'+(arrayAllPrevious.length))
 
+    if (newArr.length > 0) {
+      generationCounter.value++;
+
+      counter.innerText =
+        "Quantity of rebirth: " + generationCounter.value.toString();
+    } else {
+      clearField(allCells, generationCounter, counter, speed);
+      // alert("Everybody sleep!");
+      // window.location.reload();
+    }
+    
+ // } catch (err) {throw new Error("Game is over");}
   for (let i = 0; i < allCells.length; i++) {
     if (allCells[i]?.countNeighbors === 3) {
       if (allCells[i]?.classList.contains("idle")) {
@@ -180,9 +214,23 @@ export function findActiveNeighbors(
      
     } */
   }
+  // console.log(JSON.stringify(arrayAllPrevious));
+  // console.log(JSON.stringify(arrayAllNext));
 
-  // let oldArrayAll =newArrayAll;
-  //  newArrayAll = [];
+  // alert ('next'+(arrayAllNext.length))
+  if (JSON.stringify(arrayAllPrevious) === JSON.stringify(arrayAllNext)) {
+    //   alert( 'Game is over'  )
+    // throw""
+  } else {
+    // generationCounter.value++;
+    // console.log(generationCounter);
+    // counter.innerText =
+    // "Quantity of rebirth: " + generationCounter.value.toString();
+  }
+
+  arrayAllPrevious = [...arrayAllNext];
+  // console.log(arrayAllPrevious)
+  arrayAllNext = [];
 
   newArr = [];
 }

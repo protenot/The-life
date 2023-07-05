@@ -15,7 +15,9 @@ export function reviveField(element: HTMLElement, x: number, y: number): void {
   speedInput.min = "0";
   speedInput.max = "60";
   speedInput.value = "30";
-
+  speedInput.addEventListener("input", function() {
+    speed.value = Number(speedInput.value);
+  });
   element.append(speedInput);
 
   const speed: { value: number } = { value: Number(speedInput.value) };

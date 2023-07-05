@@ -31,13 +31,15 @@ export function createMarkup(
 
   const buttonStart = document.createElement("button");
   buttonStart.classList.add("start");
-  console.log(buttonStart.className);
+
   buttonStart.innerText = "Start";
-  console.log(buttonStart.innerText);
+
   element.append(buttonStart);
   // buttonStart.addEventListener("click", updatesProcess);
   buttonStart.addEventListener("click", function () {
     updatesProcess(allCells, generationCounter, inputX, counter, speed);
+ 
+ 
   });
 
   const buttonClear = document.createElement("button");
@@ -48,4 +50,21 @@ export function createMarkup(
   buttonClear.addEventListener("click", function () {
     clearField(allCells, generationCounter, counter, speed);
   });
+  /* const buttonRestart = document.createElement("button");
+  buttonRestart.classList.add("start");
+  
+  buttonRestart.innerText = "Restart";
+ 
+  element.append(buttonRestart);
+
+  buttonRestart.addEventListener("click",  ()=> {
+    history.go(0);
+    setTimeout(function(){
+      window.location.reload();
+      history.go(0);
+    });
+ 
+ 
+  });*/
+
 }

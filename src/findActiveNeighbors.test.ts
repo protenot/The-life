@@ -36,7 +36,7 @@ describe("findActiveNeighbors", () => {
     const generationCounter: { value: number } = { value: 0 };
     const inputX = 3;
     const counter = createMockHTMLElement();
-    const speed = 30;
+    const speed = { value: 30 };
 
     findActiveNeighbors(allCells, generationCounter, inputX, counter, speed);
 
@@ -70,7 +70,7 @@ describe("findActiveNeighbors", () => {
     const generationCounter: { value: number } = { value: 0 };
     const inputX = 3;
     const counter = createMockHTMLElement();
-    const speed = 30;
+    const speed = { value: 30 };
 
     // Call the function
     findActiveNeighbors(allCells, generationCounter, inputX, counter, speed);

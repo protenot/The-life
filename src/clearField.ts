@@ -16,9 +16,9 @@ export function clearField(
       allCells[i].classList.add("idle");
       allCells[i].classList.remove("active");
       generationCounter.value = 0;
-      counter.innerText = `${
+      counter.innerText = 
         "Quantity of rebirth: " + generationCounter.value.toString()
-      }`;
+      ;
     }
   }
   generationCounter.value = 0;

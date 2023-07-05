@@ -16,7 +16,7 @@ jest.useFakeTimers();
 
 describe("updatesProcess", () => {
   test("should call findActiveNeighbors and recursively call updatesProcess with the correct arguments", () => {
-    const speed = 2;
+    const speed = { value: 2 };
     const allCells: CustomHTMLElement[] = [
       createCell("active"),
       createCell("active"),
@@ -49,7 +49,7 @@ describe("updatesProcess", () => {
     expect(setTimeoutSpy).toHaveBeenCalledTimes(1);
     expect(setTimeoutSpy).toHaveBeenLastCalledWith(
       expect.any(Function),
-      1200 / speed
+      1200 / speed.value
     );
   });
 });

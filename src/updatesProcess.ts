@@ -14,9 +14,8 @@ export function updatesProcess(
   // console.log(allCells)
 
   setTimeout(function () {
-    // console.log(allCells[4].className)
     findActiveNeighbors(allCells, generationCounter, inputX, counter, speed);
-    // console.log(speed);
+
     updatesProcess(allCells, generationCounter, inputX, counter, speed);
   }, 1200 / speed.value);
 }
