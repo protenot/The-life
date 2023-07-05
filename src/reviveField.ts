@@ -1,7 +1,13 @@
 import { createMarkup } from "./createMarkup";
 // import { findActiveNeighbors } from "./findActiveNeighbors";
 // import { makeActive } from "./makeActive";
-export function reviveField(element: HTMLElement, x: number, y: number): void {
+export function reviveField(
+  element: HTMLElement,
+  columns: number,
+  rows: number
+): void {
+  element.style.setProperty("--columns", columns.toString());
+  element.style.setProperty("--rows", rows.toString());
   const generationCounter: { value: number } = { value: 0 };
 
   const counter: HTMLElement = document.createElement("div");
@@ -21,8 +27,8 @@ export function reviveField(element: HTMLElement, x: number, y: number): void {
 
   const speed: { value: number } = { value: Number(speedInput.value) };
   console.log(speed);
-  const inputX: number = x;
-  const inputY: number = y;
+  const inputX: number = columns;
+  const inputY: number = rows;
   const totalQuantity: number = inputX * inputY;
   const allCells: HTMLElement[] = Array.from(document.querySelectorAll(".box"));
 

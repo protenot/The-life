@@ -11,19 +11,33 @@ h1 {
   display: flex;
   flex-direction: column;
 }
+#container1 {
+  margin: 0 auto;
+  width: 50%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+}
 .field {
   display: grid;
-  grid-template-columns: repeat(15, 30px);
-  grid-template-rows: repeat(15, 30px);
+  grid-template-columns: repeat(var(--columns), 30px);
+  grid-template-rows: repeat(var(--rows), 30px);
+
+  justify-content: center;
+}
+.field1 {
+  display: grid;
+  grid-template-columns: repeat(5, 30px);
+  grid-template-rows: repeat(5, 30px);
 
   justify-content: center;
 }
 
 .box {
   display: block;
-  width: 40px;
-  height: 40px;
-  background-color: aqua;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(243, 246, 250);
   align-items: center;
 
   border: 1px solid black;
@@ -35,10 +49,6 @@ h1 {
 
 .active {
   background-color: plum;
-}
-
-.halfactive {
-  background-color: yellow;
 }
 
 button {
