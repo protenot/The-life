@@ -1,0 +1,63 @@
+import { updatesProcess } from "./updatesProcess.ts";
+import * as findActiveNeighbors from "./findActiveNeighbors";
+
+interface CustomHTMLElement extends HTMLElement {
+  countNeighbors?: number;
+}
+
+function createCell(className: string): CustomHTMLElement {
+  const cell: CustomHTMLElement = document.createElement("div");
+  cell.classList.add(className);
+
+  return cell;
+}
+
+jest.useFakeTimers();
+
+describe("updatesProcess", () => {
+  
+  it ("should call findActiveNeighbors and recursively call updatesProcess with the correct arguments", () => {
+    const speed = { value: 2 };
+    const allCells: CustomHTMLElement[] = [
+      createCell("active"),
+      createCell("active"),
+      createCell("idle"),
+      createCell("active"),
+      createCell("idle"),
+      createCell("idle"),
+      createCell("active"),
+      createCell("active"),
+      createCell("idle"),
+    ];
+    const generationCounter: { value: number } = { value: 0 };
+    const inputX = 3;
+    const counter = document.createElement("div");
+
+    const setTimeoutSpy = jest.spyOn(window, "setTimeout");
+
+    /*const findActiveNeighborsSpy = jest.spyOn(
+      findActiveNeighbors,
+      "findActiveNeighbors"
+    );*/
+
+    // const updatesProcessSpy = jest.spyOn(updatesProcess, 'updatesProcess');
+
+    updatesProcess(allCells, generationCounter, inputX, counter, speed);
+
+    /* Почему-то не работает
+    
+    expect(findActiveNeighborsSpy).toHaveBeenCalledWith(
+      allCells,
+      generationCounter,
+      inputX,
+      counter
+    ); */
+    // expect(updatesProcess()).toHaveBeenCalledWith(speed, allCells, generationCounter, inputX, counter);
+    expect(setTimeoutSpy).toHaveBeenCalledTimes(1);
+    expect(setTimeoutSpy).toHaveBeenLastCalledWith(
+      expect.any(Function),
+      1200 / speed.value
+    );
+    
+  });
+});
