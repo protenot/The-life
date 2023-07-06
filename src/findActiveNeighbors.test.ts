@@ -17,7 +17,7 @@ function createMockHTMLElement(): HTMLElement {
 
 describe("findActiveNeighbors", () => {
   it("should update the countNeighbors property correctly for each cell", () => {
-    // Mock input data
+   
     const allCells: CustomHTMLElement[] = [
       createCell("active"),
       createCell("active"),
@@ -36,7 +36,7 @@ describe("findActiveNeighbors", () => {
 
     findActiveNeighbors(allCells, generationCounter, inputX, counter);
 
-    // Verify the countNeighbors property is updated correctly
+    
 
     expect(allCells[0].countNeighbors).toBe(2);
 
@@ -51,7 +51,7 @@ describe("findActiveNeighbors", () => {
   });
 
   it("should make newArr with active cells", () => {
-    // Prepare the test data
+    
     const allCells: CustomHTMLElement[] = [
       createCell("active"),
       createCell("active"),
@@ -67,10 +67,10 @@ describe("findActiveNeighbors", () => {
     const inputX = 3;
     const counter = createMockHTMLElement();
 
-    // Call the function
+    
     findActiveNeighbors(allCells, generationCounter, inputX, counter);
 
-    // Assert the result
+   
     const activeCells = allCells.filter((cell) =>
       cell.classList.contains("active")
     );
@@ -109,15 +109,20 @@ describe("findActiveNeighbors", () => {
     const counter = createMockHTMLElement();
 
     findActiveNeighbors(allCells, generationCounter, inputX, counter);
-    // counter = 1
+   
     expect(generationCounter.value).toEqual(1);
+   
     // changed class to 'active' if 'idle' and 3 'alive' around
 
     expect(allCells[4].className).toBe("active");
+    
     // changed class to "idle" if 'alive' and 1 'alive' around
+   
     expect(allCells[0].className).toBe("idle");
     expect(allCells[2].className).toBe("idle");
+   
     // nothing changes if 2 'alive' around
+    
     expect(allCells[1].className).toBe("active");
   });
 });

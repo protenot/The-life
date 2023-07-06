@@ -4,7 +4,7 @@ describe("makeActive", () => {
   let element: HTMLElement;
 
   beforeEach(() => {
-    // Create a element before each test
+   
     element = document.createElement("div");
   });
 

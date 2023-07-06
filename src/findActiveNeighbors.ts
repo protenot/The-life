@@ -11,12 +11,9 @@ export function findActiveNeighbors(
   counter: HTMLElement
 ): void {
   let newArr: Element[] = [];
-  // let arrayAllPrevious:Element[];
-  // let arrayAllNext:Element[]=[];
+  
   for (let i = 0; i < allCells.length; i++) {
-    //  arrayAllPrevious.push( allCells[i]);
-    // console.log(arrayAllPrevious.length)
-
+  
     allCells[i].countNeighbors = 0;
     // проверяем первую ячейку
     if (i === 0) {
@@ -181,7 +178,7 @@ export function findActiveNeighbors(
       "Quantity of rebirth: " + generationCounter.value.toString();
 
     // alert("Everybody sleep!");
-    // window.location.reload();
+     window.location.reload();
   }
 
   // } catch (err) {throw new Error("Game is over");}

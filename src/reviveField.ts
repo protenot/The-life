@@ -1,6 +1,5 @@
 import { createMarkup } from "./createMarkup";
-// import { findActiveNeighbors } from "./findActiveNeighbors";
-// import { makeActive } from "./makeActive";
+
 export function reviveField(
   element: HTMLElement,
   columns: number,

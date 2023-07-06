@@ -15,7 +15,8 @@ function createCell(className: string): CustomHTMLElement {
 jest.useFakeTimers();
 
 describe("updatesProcess", () => {
-  test("should call findActiveNeighbors and recursively call updatesProcess with the correct arguments", () => {
+  
+  it ("should call findActiveNeighbors and recursively call updatesProcess with the correct arguments", () => {
     const speed = { value: 2 };
     const allCells: CustomHTMLElement[] = [
       createCell("active"),
@@ -34,16 +35,18 @@ describe("updatesProcess", () => {
 
     const setTimeoutSpy = jest.spyOn(window, "setTimeout");
 
-    const findActiveNeighborsSpy = jest.spyOn(
+    /*const findActiveNeighborsSpy = jest.spyOn(
       findActiveNeighbors,
       "findActiveNeighbors"
-    );
+    );*/
 
     // const updatesProcessSpy = jest.spyOn(updatesProcess, 'updatesProcess');
 
     updatesProcess(allCells, generationCounter, inputX, counter, speed);
 
-    /*  expect(findActiveNeighborsSpy).toHaveBeenCalledWith(
+    /* Почему-то не работает
+    
+    expect(findActiveNeighborsSpy).toHaveBeenCalledWith(
       allCells,
       generationCounter,
       inputX,
@@ -55,9 +58,6 @@ describe("updatesProcess", () => {
       expect.any(Function),
       1200 / speed.value
     );
-    /* expect(setTimeoutSpy).toHaveBeenLastCalledWith(
-      findActiveNeighborsSpy,
-      1200 / speed.value
-    ); */
+    
   });
 });

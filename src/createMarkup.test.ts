@@ -7,13 +7,13 @@ describe("createMarkup", () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    // Create a container element before each test
+   
     container = document.createElement("div");
     document.body.append(container);
   });
 
   afterEach(() => {
-    // Clean up the container element after each test
+  
     container.remove();
   });
   interface CustomHTMLElement extends HTMLElement {
@@ -72,7 +72,7 @@ describe("createMarkup", () => {
     box.dispatchEvent(new Event("click"));
     expect(box.className).toEqual("box active");
 
-    // Assert that the buttons are created and have the correct text
+    // Check that the buttons are created and have text
     const startButton: HTMLButtonElement = container.querySelector(".start");
     console.log(startButton.innerText);
     expect(startButton).toBeTruthy();

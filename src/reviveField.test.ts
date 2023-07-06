@@ -6,15 +6,15 @@ describe("reviveField", () => {
   let y: number;
 
   beforeEach(() => {
-    // Create a mock element
+   
     element = document.createElement("div");
 
-    // Set up other necessary variables
+   
     x = 5;
     y = 5;
   });
   afterEach(() => {
-    // Clean up the element after each test
+   
     element.innerHTML = "";
   });
 
